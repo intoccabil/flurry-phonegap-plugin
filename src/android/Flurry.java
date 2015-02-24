@@ -36,6 +36,8 @@ public class Flurry extends CordovaPlugin {
             Log.d("Flurry", action);
             if(action.equals("startSession")) {
                 FlurryAgent.onStartSession(cordova.getActivity().getApplicationContext(), args.getString(0));
+            } else if(action.equals("init")) {
+                FlurryAgent.init(cordova.getActivity().getApplicationContext(), args.getString(0));
             } else if(action.equals("endSession")) {
                 FlurryAgent.onEndSession(cordova.getActivity().getApplicationContext());
             } else if(action.equals("setSessionContinueSeconds")) {
@@ -74,7 +76,7 @@ public class Flurry extends CordovaPlugin {
                 callbackContext.error("invalid/na flurry method: " + action);
                 return false;
             }
-            callbackContext.success("");
+            callbackContext.success("Ok");
             return true; 
         } catch (JSONException e){
             Log.d("Flurry exception: ", e.getMessage());
