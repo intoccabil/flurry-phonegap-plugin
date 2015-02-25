@@ -1,4 +1,4 @@
-package com.phonegap.plugins.flurry;
+package com.phonegap.plugins;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,12 +34,16 @@ public class Flurry extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try{
             Log.d("Flurry", action);
-            if(action.equals("startSession")) {
-                FlurryAgent.onStartSession(cordova.getActivity().getApplicationContext(), args.getString(0));
-            } else if(action.equals("init")) {
+             if(action.equals("startSession"))
+             {
+                FlurryAgent.onStartSession(cordova.getActivity());
+             }
+             else if(action.equals("startSessionOld")) {
+                 FlurryAgent.onStartSession(cordova.getActivity().getApplicationContext(), args.getString(0));
+             } else if(action.equals("init")) {
                 FlurryAgent.init(cordova.getActivity().getApplicationContext(), args.getString(0));
             } else if(action.equals("endSession")) {
-                FlurryAgent.onEndSession(cordova.getActivity().getApplicationContext());
+                FlurryAgent.onEndSession(cordova.getActivity());
             } else if(action.equals("setSessionContinueSeconds")) {
                 FlurryAgent.setContinueSessionMillis(args.getLong(0));
             } else if(action.equals("setAppVersion")) {
@@ -50,6 +54,8 @@ public class Flurry extends CordovaPlugin {
                 FlurryAgent.setGender((byte)args.getLong(0));
             } else if(action.equals("setAge")) {
                 FlurryAgent.setAge((int)args.getLong(0));
+            } else if(action.equals("setLogEvents")) {
+                FlurryAgent.setLogEvents(args.getBoolean(0));
             } else if (action.equals("logEvent") || action.equals("logEventWithParameters")
                     || action.equals("logTimedEvent") || action.equals("logTimedEventWithParameters")) {
                 boolean timed = false;
