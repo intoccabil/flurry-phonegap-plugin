@@ -38,7 +38,7 @@ public class Flurry extends CordovaPlugin {
              {
                 FlurryAgent.onStartSession(cordova.getActivity());
              }
-             else if(action.equals("startSessionOld")) {
+             else if(action.equals("startSessionKey")) {
                  FlurryAgent.onStartSession(cordova.getActivity().getApplicationContext(), args.getString(0));
              } else if(action.equals("init")) {
                 FlurryAgent.init(cordova.getActivity().getApplicationContext(), args.getString(0));

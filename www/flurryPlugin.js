@@ -62,8 +62,8 @@
         return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'startSession',[]);
     };
 
-    Flurry.prototype.startSessionOld = function(key,successCallback,failureCallback) {
-        return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'startSessionOld', [key]);
+    Flurry.prototype.startSessionKey = function(key,successCallback,failureCallback) {
+        return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'startSession', [key]);
     };
 
     Flurry.prototype.init = function(key,successCallback,failureCallback) {
