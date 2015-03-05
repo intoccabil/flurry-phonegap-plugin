@@ -41,7 +41,7 @@
 
 		<source-file src="src/android/Flurry.java"
 					target-dir="src/com/phonegap/plugins/flurry/" />
-                <source-file src="lib/android/FlurryAnalytics-5.3.0.jar" target-dir="/libs" />
+                <source-file src="lib/android/FlurryAnalytics-5.3.0.jar" target-dir="libs" />
 		<dependency id="com.google.playservices" />
 	<!--	<dependency id="android.support.v4" /> -->
 		<config-file target="AndroidManifest.xml" parent="/*/application">
